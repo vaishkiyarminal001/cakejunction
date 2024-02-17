@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.DTO.DataDto;
 import com.app.entity.Data;
-import com.app.service.DataService;
+import com.app.service.DataServiceImpl;
 
 @RestController
 @RequestMapping("/data")
@@ -24,10 +25,10 @@ import com.app.service.DataService;
 public class DataController {
 
 	 @Autowired
-	    private DataService dataService;
+	    private DataServiceImpl dataService;
 
 	    @PostMapping("/registerData")
-	    public ResponseEntity<Data> addData(@RequestBody Data data) {
+	    public ResponseEntity<Data> addData(@RequestBody DataDto data) {
 	        Data newData = dataService.addData(data);
 	        return ResponseEntity.status(HttpStatus.CREATED).body(newData);
 	    }
@@ -59,8 +60,14 @@ public class DataController {
 	    }
 
 	    @DeleteMapping("/deleteData/{id}")
-	    public ResponseEntity<Void> deleteData(@PathVariable Long id) {
-	        dataService.deleteData(id);
-	        return ResponseEntity.noContent().build();
+	    public ResponseEntity<?> deleteData(@PathVariable Long id) {
+	        if(id!=null) {
+	        	Data d = dataService.deleteData(id);
+	        	return new ResponseEntity<Data> (d, HttpStatus.OK);
+	        }else {
+	        	return new ResponseEntity<String>("Not Deleted!!", HttpStatus.BAD_REQUEST);
+	        }
 	    }
+	    
+	    
 }

@@ -5,19 +5,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Data {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
-	
-	@Column(columnDefinition = "TEXT")
-	private String imageUrl;
-	
-	private String description;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @NotBlank(message = "Name is required")
+    @Size(max = 255, message = "Name must be less than 255 characters")
+    private String name;
+    
+    @Column(columnDefinition = "TEXT")
+    private String imageUrl;
+    
+    @NotBlank(message = "Description is required")
+    @Size(max = 1000, message = "Description must be less than 1000 characters")
+    private String description;
 	
 	
 	
