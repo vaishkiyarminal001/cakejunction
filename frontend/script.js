@@ -1,6 +1,6 @@
 // Function to fetch data from the API
 function fetchDataAndDisplay() {
-    fetch('http://localhost:8080/data/getAllData')
+    fetch('https://cakejunction-production.up.railway.app/data/getAllData')
         .then(response => response.json())
         .then(data => {
             
@@ -37,7 +37,7 @@ function addData() {
     console.log(imageUrl);
     console.log("Hi");
 
-    fetch('http://localhost:8080/data/registerData', {
+    fetch('https://cakejunction-production.up.railway.app/data/registerData', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ function addData() {
 
 // Function to delete data
 function deleteData(id) {
-    fetch('http://localhost:8080/data/deleteData/' + id, {
+    fetch('https://cakejunction-production.up.railway.app/data/deleteData/' + id, {
         method: 'DELETE'
     })
     .then(response => {
@@ -88,7 +88,7 @@ function showUpdateForm(id) {
         var newDescription = updateDescriptionInput.value;
         var newImageUrl = updateImageUrlInput.value;
 
-        fetch('http://localhost:8080/data/updateData/' + id, {
+        fetch('https://cakejunction-production.up.railway.app/data/updateData/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
