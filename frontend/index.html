@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Cake Junction</h1>
+
+        <form id="add-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description">
+            <label for="image-url">Image URL:</label>
+            <input type="text" id="image-url" name="image-url">
+            <button type="submit">Add</button>
+        </form>
+    
+        <div id="user-cards"></div>
+
+     <!-- Edit -->
+
+<div id="update-form" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <label for="update-name">New Name:</label>
+        <input type="text" id="update-name" name="update-name" required>
+        <label for="update-description">New Description:</label>
+        <input type="text" id="update-description" name="update-description">
+        <label for="update-image-url">New Image URL:</label>
+        <input type="text" id="update-image-url" name="update-image-url">
+        <button id="update-button" class="update-button" type="button">Update</button>
+    </div>
+</div>
+
+
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
