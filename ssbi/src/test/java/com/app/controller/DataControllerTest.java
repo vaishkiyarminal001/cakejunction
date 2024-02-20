@@ -1,8 +1,7 @@
-package com.app;
-
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+package com.app.controller;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +11,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.app.DTO.DataDto;
-import com.app.controller.DataController;
 import com.app.entity.Data;
 import com.app.service.DataServiceImpl;
 
-@SpringBootTest
-class SsbiApplicationTests {
+class DataControllerTest {
 
-	@Test
-	void contextLoads() {
-	}
-	
-	@Mock
+    @Mock
     private DataServiceImpl dataService;
 
     @InjectMocks
@@ -103,5 +95,4 @@ class SsbiApplicationTests {
         assert response.getStatusCode() == HttpStatus.OK;
         assert response.getBody() == data;
     }
-
 }
