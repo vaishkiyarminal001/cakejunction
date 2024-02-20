@@ -13,6 +13,7 @@ This is a simple CRUD (Create, Read, Update, Delete) website that allows users t
 🖥️ Frontend: HTML, CSS, JavaScript<br>
 🔙 Backend: Java, Spring Boot<br>
 💾 Database: MySQL<br>
+🥲Testing: JUnit and mocito<br>
 
 ## API Endpoints<br>
 📡 GET /data/getAllData: Get all data.<br>
